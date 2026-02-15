@@ -10,12 +10,12 @@ class Category(models.Model):
         unique=True,
         verbose_name="Название категории продукта"
     )
-    slug = models.CharField(
-        max_length=50,
-        null=False,
-        verbose_name=""
+    slug = models.SlugField()
+    image = models.ImageField(
+        null=True,
+        blank=True,
+        verbose_name="Изображение категории"
     )
-    image = models.ImageField(verbose_name="Изображение категории")
 
     class Meta:
         verbose_name = "Категория"
@@ -33,16 +33,16 @@ class SubCategory(models.Model):
         unique=True,
         verbose_name="Название подкатегории продукта"
     )
-    slug = models.CharField(
-        max_length=50,
-        null=False,
-        verbose_name=""
+    slug = models.SlugField()
+    image = models.ImageField(
+        null=True,
+        blank=True,
+        verbose_name="Изображение подкатегории"
     )
-    image = models.ImageField(verbose_name="Изображение подкатегории")
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
-        verbose_name=""
+        related_name="subcategories"
     )
 
     class Meta:
@@ -60,19 +60,29 @@ class Product(models.Model):
         null=False,
         verbose_name="Название продукта"
     )
-    slug = models.CharField(
-        max_length=50,
-        null=False,
-        verbose_name=""
-    )
+    slug = models.SlugField()
     price = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         verbose_name="Цена продукта"
     )
-    image_small = models.ImageField()
-    image_medium = models.ImageField()
-    image_large = models.ImageField()
+    image_small = models.ImageField(
+        null=True,
+        blank=True
+    )
+    image_medium = models.ImageField(
+        null=True,
+        blank=True
+    )
+    image_large = models.ImageField(
+        null=True,
+        blank=True
+    )
+    subcategory = models.ForeignKey(
+        SubCategory,
+        on_delete=models.CASCADE,
+        related_name="products"
+    )
 
     class Meta:
         verbose_name = "Продукт"
@@ -101,8 +111,8 @@ class Cart(models.Model):
         return f"Корзина пользователя с ID: {self.user_id}"
 
 
-class ProductCart(models.Model):
-    """ Модель """
+class CartProduct(models.Model):
+    """ Модель связи продукта и корзины """
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     quantity = models.DecimalField(

@@ -12,7 +12,7 @@ else:
     print('Файл .env не найден')
 
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG')
 
@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'store_app'
+    'rest_framework',
+    'store_app',
 ]
 
 MIDDLEWARE = [
