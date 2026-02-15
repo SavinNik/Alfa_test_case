@@ -10,10 +10,9 @@ class Category(models.Model):
         unique=True,
         verbose_name="Название категории продукта"
     )
-    slug = models.SlugField()
+    slug = models.SlugField(null=False)
     image = models.ImageField(
-        null=True,
-        blank=True,
+        null=False,
         verbose_name="Изображение категории"
     )
 
@@ -33,10 +32,9 @@ class SubCategory(models.Model):
         unique=True,
         verbose_name="Название подкатегории продукта"
     )
-    slug = models.SlugField()
+    slug = models.SlugField(null=False)
     image = models.ImageField(
-        null=True,
-        blank=True,
+        null=False,
         verbose_name="Изображение подкатегории"
     )
     category = models.ForeignKey(
@@ -94,7 +92,7 @@ class Product(models.Model):
 
 class Cart(models.Model):
     """ Модель корзины """
-    user_id = models.ForeignKey(
+    user = models.ForeignKey(
         User,
         on_delete=models.CASCADE
     )
@@ -120,3 +118,7 @@ class CartProduct(models.Model):
         decimal_places=2,
         verbose_name="Количество"
     )
+
+    class Meta:
+        verbose_name = "Товар в корзине"
+        verbose_name_plural = "Товары в корзине"
