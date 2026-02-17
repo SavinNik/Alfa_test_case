@@ -61,7 +61,7 @@ class AddToCartSerializer(serializers.ModelSerializer):
         fields = ["product_id", "quantity"]
 
     @staticmethod
-    def validate_quantity(self, value):
+    def validate_quantity(value):
         if value <= 0:
             raise serializers.ValidationError("Количество должно быть больше 0")
         return value
@@ -70,7 +70,7 @@ class AddToCartSerializer(serializers.ModelSerializer):
         user = self.context["request"].user
         cart, created = Cart.objects.get_or_create(user=user)
         product_id = validated_data["product_id"]
-        quantity = validated_data.get["quantity"]
+        quantity = validated_data["quantity"]
 
         product_cart, created = CartProduct.objects.get_or_create(
             cart=cart,
