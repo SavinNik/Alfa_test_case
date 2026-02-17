@@ -11,9 +11,9 @@ User = get_user_model()
 def user(db):
     """Создаёт тестового пользователя"""
     return User.objects.create_user(
-        username='test_user',
-        email='test_user@test.ru',
-        password='testpass1'
+        username="test_user",
+        email="test_user@test.ru",
+        password="testpass1"
     )
 
 
@@ -21,9 +21,9 @@ def user(db):
 def category(db):
     """Создаёт категорию"""
     return Category.objects.create(
-        name='Молочная продукция',
-        slug='molochnaya-produkciya',
-        image='categories/test.jpg'
+        name="Молочная продукция",
+        slug="molochnaya-produkciya",
+        image="categories/test.jpg"
     )
 
 
@@ -31,9 +31,9 @@ def category(db):
 def subcategory(db, category):
     """Создаёт подкатегорию, связанную с категорией"""
     return SubCategory.objects.create(
-        name='Молоко',
-        slug='moloko',
-        image='subcategories/test.jpg',
+        name="Молоко",
+        slug="moloko",
+        image="subcategories/test.jpg",
         category=category
     )
 
@@ -42,8 +42,8 @@ def subcategory(db, category):
 def product(db, subcategory):
     """Создаёт продукт, связанный с подкатегорией"""
     return Product.objects.create(
-        name='Молоко 2,5%',
-        slug='moloko-2-5',
+        name="Молоко 2,5%",
+        slug="moloko-2-5",
         price=89.99,
         subcategory=subcategory
     )

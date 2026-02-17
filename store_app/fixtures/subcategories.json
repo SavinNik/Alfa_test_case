@@ -1,0 +1,22 @@
+[
+  {
+    "model": "store_app.subcategory",
+    "pk": 1,
+    "fields": {
+      "name": "Молоко",
+      "slug": "moloko",
+      "category": 1,
+      "image": "subcategories/moloko.jpg"
+    }
+  },
+  {
+    "model": "store_app.subcategory",
+    "pk": 2,
+    "fields": {
+      "name": "Сосиски",
+      "slug": "sosiski",
+      "category": 2,
+      "image": "subcategories/sosiski.jpg"
+    }
+  }
+]

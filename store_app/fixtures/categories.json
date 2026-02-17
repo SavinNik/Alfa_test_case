@@ -1,0 +1,20 @@
+[
+  {
+    "model": "store_app.category",
+    "pk": 1,
+    "fields": {
+      "name": "Молочная продукция",
+      "slug": "molochnaya-produkciya",
+      "image": "categories/molochnaya-produkciya.jpg"
+    }
+  },
+  {
+    "model": "store_app.category",
+    "pk": 2,
+    "fields": {
+      "name": "Колбасные изделия",
+      "slug": "kolbasnye-izdeliya",
+      "image": "categories/kolbasnye-izdeliya.jpg"
+    }
+  }
+]

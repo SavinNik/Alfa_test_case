@@ -1,0 +1,28 @@
+[
+  {
+    "model": "store_app.product",
+    "pk": 2,
+    "fields": {
+      "name": "Молоко 2.5%",
+      "slug": "moloko-2-5",
+      "subcategory": 1,
+      "price": "89.99",
+      "image_small": "products/small/moloko-2-5.jpg",
+      "image_medium": "products/medium/moloko-2-5.jpg",
+      "image_large": "products/large/moloko-2-5.jpg"
+    }
+  },
+  {
+    "model": "store_app.product",
+    "pk": 1,
+    "fields": {
+      "name": "Сосиски детские",
+      "slug": "sosiski-detskie",
+      "subcategory": 2,
+      "price": "450.00",
+      "image_small": "products/small/sosiski-detskie.jpg",
+      "image_medium": "products/medium/sosiski-detskie.jpg",
+      "image_large": "products/large/sosiski-detskie.jpg"
+    }
+  }
+]

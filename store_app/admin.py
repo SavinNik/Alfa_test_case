@@ -19,7 +19,6 @@ class SubCategoryAdmin(admin.ModelAdmin):
     list_filter = ["name"]
 
 
-
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     """ Админ-панель для продуктов """
