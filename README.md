@@ -137,6 +137,17 @@ http://127.0.0.1:8000/admin
 http://127.0.0.1:8000/swagger/
 ```
 
+## Запуск проекта при помощи Docker
+1. У вас должен быть установлен Docker
+2. Сборка образа и запуск:
+```bash
+docker-compose up --build
+```
+3. Создания суперпользователя:
+```bash
+docker-compose exec web python manage.py createsuperuser 
+```
+
 ## API Эндпоинты
 - GET /api/categories/ - Список всех категорий с подкатегориями
 - GET /api/products/ - Список всех продуктов
