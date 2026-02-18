@@ -4,7 +4,8 @@ from rest_framework import status
 
 
 @pytest.mark.django_db
-def test_get_products(api_client, product):
+def test_get_products(api_client, product, subcategory):
+    """ Тест получения продуктов с категорией и подкатегорией"""
     url = reverse("products")
     response = api_client.get(url)
 
@@ -12,3 +13,5 @@ def test_get_products(api_client, product):
     assert len(response.data["results"]) >= 1
     assert response.data["results"][0]["name"] == product.name
     assert response.data["results"][0]["price"] == str(product.price)
+    assert response.data["results"][0]["subcategory"] == subcategory.name
+    assert response.data["results"][0]["category"] == subcategory.category.name

@@ -5,6 +5,7 @@ from rest_framework import status
 
 @pytest.mark.django_db
 def test_get_categories_with_subcategories(user, category, subcategory, api_client):
+    """ Тест получения категорий с подкатегориями """
     api_client.force_authenticate(user=user)
 
     url = reverse("categories")

@@ -187,7 +187,7 @@ class CartView(APIView):
 
 
 class AuthTokenView(ObtainAuthToken):
-    """  """
+    """ Вьюха для получения токена аутентификации """
     def post(self, request: Request, *args, **kwargs) -> Response:
         serializer = self.serializer_class(
             data=request.data,

@@ -37,6 +37,3 @@ class CartAdmin(admin.ModelAdmin):
 class ProductCartAdmin(admin.ModelAdmin):
     """ Админ-панель для продуктов в корзине """
     list_display = ["product__name", "cart", "quantity"]
-
-
-

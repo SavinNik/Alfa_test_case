@@ -5,6 +5,7 @@ from django.urls import reverse
 
 @pytest.mark.django_db
 def test_add_product_to_cart(api_client, user, product):
+    """ Тест добавления продукта в корзину """
     api_client.force_authenticate(user=user)
     data = {"product_id": product.id, "quantity": 2}
 
@@ -17,6 +18,7 @@ def test_add_product_to_cart(api_client, user, product):
 
 @pytest.mark.django_db
 def test_update_cart_product_quantity(api_client, user, product):
+    """ Тест обновления кол-ва продукта в корзине """
     api_client.force_authenticate(user=user)
     data = {"product_id": product.id, "quantity": 1}
     url = reverse("cart")
@@ -32,6 +34,7 @@ def test_update_cart_product_quantity(api_client, user, product):
 
 @pytest.mark.django_db
 def test_remove_product_from_cart(api_client, user, product):
+    """ Тест удаления продукта из корзины """
     api_client.force_authenticate(user=user)
     url = reverse('cart')
     data = {'product_id': product.id, 'quantity': 2}
