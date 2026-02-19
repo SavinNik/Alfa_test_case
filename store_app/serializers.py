@@ -23,18 +23,24 @@ class ProductSerializer(serializers.ModelSerializer):
     """ Сериализатор для продуктов с категориями и подкатегориями и изображениями"""
     category = serializers.CharField(source="subcategory.category.name")
     subcategory = serializers.CharField(source="subcategory.name")
-    images = serializers.SerializerMethodField()
+    images = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = Product
         fields = ["id", "name", "slug", "price", "category", "subcategory", "images"]
 
-    @staticmethod
-    def get_images(obj: Product):
+    def get_images(self, obj: Product):
+        """ Возвращает словарь с URL изображений разных размеров """
+
+        def get_image_url(field):
+            if field and hasattr(field, 'url'):
+                return field.url
+            return None
+
         return {
-            "small": obj.image_small if obj.image_small else None,
-            "medium": obj.image_medium if obj.image_medium else None,
-            "large": obj.image_large if obj.image_large else None
+            "small": get_image_url(obj.image_small),
+            "medium": get_image_url(obj.image_medium),
+            "large": get_image_url(obj.image_large),
         }
 
 

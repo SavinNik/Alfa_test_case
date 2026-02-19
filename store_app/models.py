@@ -12,6 +12,7 @@ class Category(models.Model):
     )
     slug = models.SlugField(null=False)
     image = models.ImageField(
+        upload_to="images/",
         null=False,
         verbose_name="Изображение категории"
     )
@@ -35,6 +36,7 @@ class SubCategory(models.Model):
     )
     slug = models.SlugField(null=False)
     image = models.ImageField(
+        upload_to="images/",
         null=False,
         verbose_name="Изображение подкатегории"
     )
@@ -66,14 +68,17 @@ class Product(models.Model):
         verbose_name="Цена продукта"
     )
     image_small = models.ImageField(
+        upload_to="images/",
         null=True,
         blank=True
     )
     image_medium = models.ImageField(
+        upload_to="images/",
         null=True,
         blank=True
     )
     image_large = models.ImageField(
+        upload_to="images/",
         null=True,
         blank=True
     )

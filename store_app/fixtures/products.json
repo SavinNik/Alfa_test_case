@@ -7,9 +7,9 @@
       "slug": "moloko-2-5",
       "subcategory": 1,
       "price": "89.99",
-      "image_small": "products/small/moloko-2-5.jpg",
-      "image_medium": "products/medium/moloko-2-5.jpg",
-      "image_large": "products/large/moloko-2-5.jpg"
+      "image_small": "products/milk/small.jpg",
+      "image_medium": "products/milk/medium.jpg",
+      "image_large": "products/milk/large.jpg"
     }
   },
   {
@@ -20,9 +20,9 @@
       "slug": "sosiski-detskie",
       "subcategory": 2,
       "price": "450.00",
-      "image_small": "products/small/sosiski-detskie.jpg",
-      "image_medium": "products/medium/sosiski-detskie.jpg",
-      "image_large": "products/large/sosiski-detskie.jpg"
+      "image_small": "products/sausages/small.jpg",
+      "image_medium": "products/sausages/medium.jpg",
+      "image_large": "products/sausages/large.jpg"
     }
   }
 ]

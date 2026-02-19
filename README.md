@@ -148,17 +148,6 @@ docker-compose up --build
 docker-compose exec web python manage.py createsuperuser 
 ```
 
-## API Эндпоинты
-- GET /api/categories/ - Список всех категорий с подкатегориями
-- GET /api/products/ - Список всех продуктов
-- POST /api/cart/add/ - Добавить продукт в корзину
-- PUT /api/cart/change/ - Изменить количество продукта в корзине
-- DELETE /api/cart/remove/ - Удалить продукт из корзины
-- GET /api/cart/view/ - Просмотр содержимого корзины
-- DELETE /api/cart/clear/ - Очистить корзину
-- POST /api/auth/token/ - Получить токен авторизации
-
- 
 ## Тестирование
 Для запуска тестов выполните:
 ```bash
